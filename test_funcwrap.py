@@ -216,5 +216,12 @@ def test_posonly_arguments_1():
     pytest.raises(TypeError, f, d=1)
 
 
+def test_special_argument_names():
+    f = wraps(lambda __call__=-1: None, called)
+    assert f() == ((-1,), {})
+    assert f(0) == ((0,), {})
+    assert f(__call__=0) == ((0,), {})
+
+
 def called(*args, **kwargs):
     return (args, kwargs)

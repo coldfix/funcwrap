@@ -1,7 +1,7 @@
 funcwrap
 ========
 
-|Tests| |Version| |Unlicense|
+|Version| |Unlicense| |Tests| |Coverage|
 
 Simple helper for function wrappers or decorators that makes the wrapper
 function look indistinguishable from the original.
@@ -164,3 +164,7 @@ Reasons to use *funcwrap*:
 .. |Unlicense| image::  https://img.shields.io/pypi/l/funcwrap.svg
    :target:             https://unlicense.org/
    :alt:                Unlicense
+
+.. |Coverage| image::   https://codecov.io/gh/coldfix/funcwrap/branch/master/graph/badge.svg
+   :target:             https://codecov.io/gh/coldfix/funcwrap/branch/master
+   :alt:                Coverage
