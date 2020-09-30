@@ -9,6 +9,39 @@ def wraps(func, wrapper=None):
     """
     Return a wrapper around ``wrapper`` that preserves the signature of
     the original function ``func`` exactly.
+
+    Args:
+        func (function): function to be imitated
+        wrapper (function): function to be called actually
+
+    Returns:
+        A function that has the same signature, default arguments, and
+        appearance as as ``func`` but calls ``wrapper``, not ``func``.
+
+    Example:
+        Defining a decorator for debug output::
+
+            from funcwrap import wraps
+
+            def trace(func):
+                "Trace a function call."
+                @wraps(func)
+                def wrapper(*args, **kwargs):
+                    print('TRACE:', func.__name__, args, kwargs)
+                    return func(*args, **kwargs)
+                return wrapper
+
+        And using it as follows::
+
+            class Window(QWidget):
+                ...
+
+                @trace
+                def on_exit_clicked(self):
+                    pass
+
+            # works seemlessly:
+            exit_action.triggered.connect(window.on_exit_clicked)
     """
 
     if wrapper is None:
