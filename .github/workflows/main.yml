@@ -2,6 +2,8 @@ name: Tests
 on:
   push:
   pull_request:
+  schedule:
+    - cron: '12 20  *  *  1'
 
 jobs:
   build:
